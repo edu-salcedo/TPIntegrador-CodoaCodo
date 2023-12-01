@@ -18,7 +18,7 @@ Proyecto desarrollado con:
 
 ## Colaboración 
 Integrantes del grupo 8 que colaboraron con el desarrollo del proyecto.
- * 1
+* 1
 * 2
 * 3
 * 4

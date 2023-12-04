@@ -22,6 +22,6 @@ Integrantes del grupo 8 que colaboraron con el desarrollo del proyecto.
 * 2
 * 3
 * 4
-* 5
+* 5 - Alan Marcello
 
 

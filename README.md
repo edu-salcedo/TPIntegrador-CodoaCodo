@@ -8,7 +8,18 @@
 ### Información general
 Proyecto integrador final del curso de fullstack Java  de Coco a Codo, una página web donde podes encontrar los próximos eventos y conocer a sus oradores, también tenes la posibilidad de comprar tickets para asistir al evento que te guste.
 ### Algunas imágenes
-![Imagen]( https://cloudfront-us-east-1.images.arcpublishing.com/radiomitre/6VCBSJUNWZGQNCXEPDHMS4UTNE.jpg)
+<kbd>
+<img src="./resources/img/hawaii3.jpg" alt="imgenPrincipal">
+</kbd>
+
+<kbd>
+<img src="./resources/img/hawaii.jpg" alt="imgenPrincipal">
+</kbd>
+
+<kbd>
+<img src="./resources/img/hawaii2.jpg" alt="imgenSecundaria">
+</kbd>
+
 ## Tecnologías
 Proyecto desarrollado con:
 * [JAVA] 
@@ -18,10 +29,12 @@ Proyecto desarrollado con:
 
 ## Colaboración 
 Integrantes del grupo 8 que colaboraron con el desarrollo del proyecto.
-* 1
-* 2
-* 3
-* 4 - Julian Piedrabuena
-* 5 - Alan Marcello
-
+<ul>
+ <li>Gastón Massa</li>
+ <li>Julián Piedrabuena</li>
+ <li>Edwin Salcedo</li>
+ <li>Matías Santos</li>
+ <li>Alan Marcello</li>
+ <li></li>
+</ul>
 

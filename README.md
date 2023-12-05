@@ -21,7 +21,7 @@ Integrantes del grupo 8 que colaboraron con el desarrollo del proyecto.
 * 1
 * 2
 * 3
-* 4
+* 4 - Julian Piedrabuena
 * 5 - Alan Marcello
 
 

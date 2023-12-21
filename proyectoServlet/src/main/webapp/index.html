@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	 <!--Css Only-->
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/45d21db9a0.js" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+  <header id="header">
+    <nav>
+     
+       
+    </nav>
+ 
+</header>
+     
+ <div id="my-app">
+  <h1 class="title align text-center"><i>PASAJEROS</i></h1>
+<!-- List group-->
+<section>
+    <div class="container-fluid text-center">
+      <div class="row justify-content-center">
+      <div class="col-sm-4">
+      <ul class="list-group bg">
+            <li class="list-group-item vertical" aria-current="true"><i class="fa-solid fa-gear"></i>MADERO URBAN OASIS</li>
+            <li class="list-group-item vertical"><a href="#" data-bs-toggle="modal" data-bs-target="#listaModal"class="vinculo"><i class="fa-solid fa-list-ol"></i>&nbsp;PASAJEROS</a></li>
+            <li class="list-group-item vertical "><a href="#" data-bs-toggle="modal" data-bs-target="#altaModal"class="vinculo"><i class="fa-solid fa-face-smile"></i>&nbsp;ALTA PASAJERO</a></li>
+            <li class="list-group-item vertical "><a href="#" data-bs-toggle="modal" data-bs-target="#editarModal"class="vinculo"><i class="fa-solid fa-pen"></i>&nbsp;CONSULTAR PASAJERO</a></li>
+            <li class="list-group-item vertical "><a href="#" data-bs-toggle="modal" data-bs-target="#eliminarModal"class="vinculo"><i class="fa-solid fa-face-sad-tear"></i>&nbsp;BAJA PASAJERO</a></li>
+          </ul>
+      </div>
+      </div>
+      </div>
+    </section>
+        
+     <div class="modal fade" id="listaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Lista de Pasajeros</h5>
+              <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <div class="table-responsive">
+                  <button type="submit" class="btn btn-primary" onclick="listarUsuarios()">Ver</button>
+                <table id ="tablaDatos" class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Código</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Apellido</th>
+                      <th scope="col">Teléfono</th>
+                      <th scope="col">Email</th>
+                    </tr>
+                    
+                  </thead>
+                  <tbody id="cuerpoTabla">
+                 
+                   
+                  </tbody>
+                 
+                </table>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      <div class="modal fade" id="altaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Alta Pasajero</h5>
+              <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <form id="form" action="endpoint" method="post"  novalidate>
+                <label for="nombre" class="form-label">Nombre<span
+                    class="asterisk">&nbsp;*</span>&nbsp;:</label>
+                  <input type="text" id="nombre" name="nombreInput" class="form-control"  required><br>
+
+                  <label for="apellido" class="form-label">Apellido<span
+                    class="asterisk">&nbsp;*</span>&nbsp;:</label>
+                  <input type="text" id="apellido" name="apellidoInput" class="form-control"  required>
+
+                  <label for="telefono" class="form-label">Telefono<span
+                    class="asterisk">&nbsp;*</span>&nbsp;:</label>
+                  <input type="text"  id="telefono" name="inputTel" class="form-control"  required>
+
+                  <label for="email" class="form-label">Email<span
+                    class="asterisk">&nbsp;*</span>&nbsp;:</label>
+                  <input type="text" id="email" name="inputEmail" class="form-control" required>
+
+                  <button type="reset" class="list_btn">Reset</button>&nbsp;
+                  <button class="list_btn" type="submit" onclick="enviarDatos()">Activar</button>
+                  <p>Los campos con asteriscos(<span class="asterisk">*</span>) son obligatorios</p>
+                 
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+        <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Consultar Pasajero</h5>
+              <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div> 
+            <div class="modal-body">
+              <div class="container">
+                <form id="formularioEdicion" novalidate >
+                  
+                  <label for="verId">Ingrese el ID:</label>
+                  <input type="text" id="verId"><br>
+                   <button type="submit"  class="list_btn" onclick="listarUsuariosForm()">Ver</button>
+                  <label for="verNombre">Nombre:</label>
+                  <input type="text" id="verNombre"  name="name"><br>
+                  <label for="verApellido">Apellido:</label>
+                  <input type="text" id="verApellido" name="lastName">
+                  <label for="verTelefono">Telefono:</label>
+                  <input type="text"  id="verTelefono" name="telephone">
+                  <label for="verEmail">Email:</label>
+                  <input type="text" id="verEmail" name="mailbox">
+                  <button type="reset" class="list_btn">Reset</button>&nbsp;
+                 
+                 
+                  </form>
+               
+              </div>
+            </div>
+            <div class="modal-footer">
+             
+            </div>
+          </div>
+        </div>
+      </div>  
+      
+
+<div class="modal fade" id="eliminarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar Pasajero</h5>
+        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="table-responsive">
+           <button type="submit" class="btn btn-primary" onclick="listarUsuariosDel()">Ver</button>
+          
+          <table id="app" class="table table-hover" >
+            <thead>
+              <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Email</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody id="cuerpoTablaDel">
+            
+              
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+   
+
+<div class="bottom">
+    <footer>
+        <h3>® Todos los derechos reservados</h3>
+        <p>MADERO URBAN OASIS 2023</p>
+    </footer>
+    </div>
+    
+
+
+   <script>
+   function listarUsuarios() {
+       event.preventDefault();
+       fetch('endpoint', {
+         method: "GET"
+         
+       }).then(response => response.json())
+         .then(data => renderizarTabla(data))
+         .catch(error => console.error("Error al parsear JSON:", error));
+ 
+     }
+     function listarUsuariosDel() {
+         event.preventDefault();
+         fetch('endpoint', {
+           method: "GET"
+           
+         }).then(response => response.json())
+           .then(dataDel => renderizarTablaDel(dataDel))
+           .catch(error => console.error("Error al parsear JSON:", error));
+   
+       }
+     
+     function listarUsuariosForm() {
+    	  event.preventDefault();
+    	  fetch('endpoint', {
+    	    method: "GET"
+    	  })
+    	    .then(response => {
+    	      if (!response.ok) {
+    	        throw new Error(`HTTP error! Status: ${response.status}`);
+    	      }
+    	      return response.json();
+    	    })
+    	    .then(dataFormArray => {
+    	      console.log('Datos del formulario que obtengo:', dataFormArray);
+
+    	      //Obtener el valor del campo ID
+    	      const idUsuario = document.getElementById('verId').value;
+
+    	      //Filtrar el usuario correcto según el ID
+    	      const usuarioSeleccionado = dataFormArray.find(usuario => usuario.id === parseInt(idUsuario));
+
+    	      if (usuarioSeleccionado) {
+    	        console.log('Usuario seleccionado:', usuarioSeleccionado);
+    	        renderizarForm(usuarioSeleccionado);
+    	      } else {
+    	        console.error('Usuario no encontrado con el ID ingresado');
+    	      }
+    	    })
+    	    .catch(error => console.error("Error al parsear JSON:", error));
+    	}
+
+
+     
+    function enviarDatos() {
+       event.preventDefault();
+       const nombre = document.getElementById('nombre').value;
+       const apellido = document.getElementById('apellido').value;
+       const telefono = document.getElementById('telefono').value;
+       const email = document.getElementById('email').value;
+       
+    //Verifico en consola que los valores se estén capturando correctamente
+       console.log("Nombre:", nombre);
+       console.log("Apellido:", apellido);
+       console.log("Telefono:", telefono);
+       console.log("Email:", email);
+       
+       fetch(`endpoint?nombreInput=${nombre}&apellidoInput=${apellido}&inputTel=${telefono}&inputEmail=${email}`, {
+           method: 'POST'
+         
+       })
+ 
+         .then(response => response.json())
+         .then(data => {
+         alert('Usuario ingresado con éxito 👍')
+         window.location.reload();
+         //Verifico la respuesta del servidor
+         console.log('Respuesta del servidor:', data);
+
+    //Envío los datos y se vuelven a listar los usuarios
+    //listarUsuarios();
+  })
+         .catch(error => console.error('Error:', error));
+       
+    }
+    
+ 
+     function renderizarTabla(data) {
+         const tabla = document.getElementById('cuerpoTabla');
+         tabla.innerHTML = '';
+ 
+         if (data !== null) {
+             data.forEach(element => {
+                 const fila = document.createElement('tr');
+                 fila.innerHTML = `<td>${element.id}</td>
+                                   <td>${element.nombre}</td>
+                                   <td>${element.apellido}</td>
+                                   <td>${element.telefono}</td>
+                                   <td>${element.email}</td>`;
+                 tabla.appendChild(fila);
+             });
+         } else {
+             console.error("La lista de usuarios es nula");
+         }
+     }
+     
+     function renderizarTablaDel(dataDel) {
+         const tablaDel = document.getElementById('cuerpoTablaDel');
+         tablaDel.innerHTML = '';
+ 
+         if (dataDel !== null) {
+             dataDel.forEach(element => {
+                 const fila = document.createElement('tr');
+                 fila.innerHTML = `<td>${element.id}</td>
+                                   <td>${element.nombre}</td>
+                                   <td>${element.apellido}</td>
+                                   <td>${element.telefono}</td>
+                                   <td>${element.email}</td>
+                                   <td><button onclick="eliminar(${element.id})">Eliminar</button></td>`;
+                                   
+                                   tablaDel.appendChild(fila);
+                                });
+         } else {
+             console.error("La lista de usuarios es nula");
+         }
+     }
+     
+     function renderizarForm(dataForm) {
+    	
+    	  const formulario = document.getElementById('formularioEdicion');
+
+    	 // valores de los campos del formulario 
+    	  formulario.elements['verNombre'].value = dataForm.nombre || '';
+    	  formulario.elements['verApellido'].value = dataForm.apellido || '';
+    	  formulario.elements['verTelefono'].value = dataForm.telefono || '';
+    	  formulario.elements['verEmail'].value = dataForm.email || '';
+    	}
+
+       //renderizarForm(ejemploDatosUsuario);
+
+        
+       function eliminar(id) {
+    	    fetch( `endpoint?id=${id}`, {
+    	        method: 'DELETE'
+    	    })
+    	    .then(response => {
+    	        if (response.ok) {
+    	           confirm(`El usuario con ID ${id} será eliminado`)
+    	           alert(`El usuario con ID ${id} se eliminó con éxito 👍`)
+    	           window.location.reload();
+    	           console.log(`Usuario con ID ${id} eliminado`);
+    	            
+    	         } else {
+    	            console.error(`Error al eliminar usuario con ID ${id}`);
+    	        }
+    	    })
+    	    .catch(error => console.error('Error:', error));
+    	}
+       
+      </script>
+
+<!-- JavaScript Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

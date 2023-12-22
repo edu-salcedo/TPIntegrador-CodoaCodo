@@ -6,19 +6,17 @@
 3. colaboradores
 
 ### Información general
-Proyecto integrador final del curso de fullstack Java  de Coco a Codo, una página web donde podes encontrar los próximos eventos y conocer a sus oradores, también tenes la posibilidad de comprar tickets para asistir al evento que te guste.
+Proyecto integrador final del curso de fullstack Java  de Coco a Codo. Se trata de una pequeña página con un sistema de gestión para un hotel en donde se pueden ingresar, ver , listar y eliminar a los pasajeros del mismo. 
 ### Algunas imágenes
 <kbd>
-<img src="./resources/img/hawaii3.jpg" alt="imgenPrincipal">
+<img src="./resources/img/imagen_front.png" alt="imgenFront">
 </kbd>
 
 <kbd>
-<img src="./resources/img/hawaii.jpg" alt="imgenPrincipal">
+<img src="./resources/img/imagen_DB.png" alt="imgenBD">
 </kbd>
 
-<kbd>
-<img src="./resources/img/hawaii2.jpg" alt="imgenSecundaria">
-</kbd>
+
 
 ## Tecnologías
 Proyecto desarrollado con:
